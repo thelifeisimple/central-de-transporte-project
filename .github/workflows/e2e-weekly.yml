@@ -1,0 +1,40 @@
+
+name: Weekly UI + API Tests
+ 
+on:
+  schedule:
+    # 15:00 ART (UTC-3) = 18:00 UTC, todos los lunes
+    - cron: '0 18 * * 1'
+  workflow_dispatch: # permite correrlo manualmente desde la UI de GitHub para probar.
+ 
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+ 
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+ 
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+ 
+      - name: Instalar dependencias
+        run: npm ci
+ 
+      - name: Instalar navegadores de Playwright
+        run: npx playwright install --with-deps
+ 
+      - name: Correr tests (UI + API)
+        run: npm run test
+ 
+      - name: Subir reporte de Playwright
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
