@@ -8,5 +8,8 @@ export const searchData = {
         },
         wrongSearchData:{
             number: '9999999'
+        },
+        notFound:{
+            message: 'No se encontraron resultados',
         }
   };
