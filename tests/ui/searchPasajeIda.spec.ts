@@ -6,7 +6,7 @@ import { SearchPage } from '../../src/ui/pages-objects/searchPages';
 import { searchData } from '../../src/utils/test-data/searchData';  
 import { ResultPage } from '../../src/ui/pages-objects/resultsPages';
 
-test('Search for a destination', async ({ page }) => {
+test('Busqueda pasaje ida', async ({ page }) => {
     const fechaIda= '20';
     const textCantidadPasajero = '2'
 
