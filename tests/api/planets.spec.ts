@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('SWAPI - Planets API', () => {
 
   test('GET /planets/1 - debe responder 200', async ({ request }) => {
-    const response = await request.get('/planets/1/');
+    const response = await request.get('planets/1/');
 
     expect(response.status()).toBe(200);
     expect(response.ok()).toBeTruthy();
@@ -13,7 +13,7 @@ test.describe('SWAPI - Planets API', () => {
   });
 
   test('GET /planets/1 - debe devolver el planeta Tatooine', async ({ request }) => {
-    const response = await request.get('/planets/1/');
+    const response = await request.get('planets/1/');
     const data = await response.json();
 
     expect(response.status()).toBe(200);
