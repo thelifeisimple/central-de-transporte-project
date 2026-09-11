@@ -28,13 +28,10 @@ export class SearchPage extends BasePage {
       this.radioButtonIdaVuelta = page.locator('label:nth-child(2) > .checkmark');
       this.fechaIdaFiled = page.locator('#fechaPartida');
       this.fechaVueltaFiled = page.getByRole('textbox', { name: 'Vuelta' });
-      //this.cantidadDePasajeros = page.locator('#pasajeros');
       this.botonBuscar = page.getByRole('button', { name: 'Buscar' })
       //this.results =
     }
-/*     selectedCiudad(nombreCiudad: string): Locator {
-        return this.page.getByRole('combobox', { name: new RegExp(`\\)\\s*${nombreCiudad}`)})
-    } */
+
     seleccionarFechaIdaBox(dia: string): Locator {
       return this.page.locator('#cdp-calendar-container').getByText(dia, { exact: true })
     }

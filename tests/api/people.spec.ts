@@ -36,10 +36,6 @@ test.describe('SWAPI - people API', () => {
 
       const valid = validatePeopleSchema(data);
  
-      if (!valid) {
-        console.log('Errores de validación de schema:', errors);
-      }
- 
       expect(valid).toBeTruthy();
     });
   }
