@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('SWAPI - Planets API', () => {
+test.describe('SWAPI - Planets API wrong', () => {
 
   test('GET /planets/1 - debe responder 404', async ({ request }) => {
-    const response = await request.get('/planets/34567578/');
+    const response = await request.get('/planets/wrong/');
 
     expect(response.status()).toBe(404);
 
