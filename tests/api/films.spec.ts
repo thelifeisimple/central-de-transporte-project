@@ -5,7 +5,7 @@ import { filmSchema } from '../../src/api/schemas/films.schema';
 const ajv = new Ajv();
 const validateFilmSchema = ajv.compile(filmSchema);
 
-test.describe.only('SWAPI - films API', () => {
+test.describe('SWAPI - films API', () => {
 
   const films = [
     { id: 4, title: 'The Phantom Menace' },
