@@ -1,0 +1,15 @@
+import { test, expect } from '@playwright/test';
+
+test.describe('SWAPI - Planets API', () => {
+
+  test('GET /planets/1 - debe responder 404', async ({ request }) => {
+    const response = await request.get('/planets/34567578/');
+
+    expect(response.status()).toBe(404);
+
+    const data = await response.json();
+    console.log(data);
+  });
+
+
+});
